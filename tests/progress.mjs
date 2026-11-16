@@ -41,6 +41,12 @@ try {
     assert(await code.locator('code .key').count()>0);
     await code.locator('[data-slot="code-block-copy-button"]').click();
     await assertEventually('copy',async()=>assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),await code.locator('code').innerText()));
+    const memo=page.locator('#fiche');
+    assert(await memo.locator('h2').isVisible());
+    assert.equal(await memo.locator('.memo-copy').count(),5);
+    await memo.locator('.memo-copy').first().click();
+    assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),'kubectl config current-context');
+    for (const link of [page.locator('.top-links a[href="#fiche"]'),page.locator('.end-links a[href="#fiche"]'),page.locator('.top-links a[href^="https://github.com/"]'),page.locator('.end-links a[href^="https://github.com/"]')]) assert(await link.isVisible());
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth),true);
     await page.locator('summary').nth(1).click(); assert(await page.locator('details').nth(1).evaluate(el=>el.open));
     assert.deepEqual(errors,[]); console.log(`PASS ${width}: navigation, ancres, clavier, fin, code, copie, atelier`);

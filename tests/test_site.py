@@ -14,6 +14,15 @@ class Page(HTMLParser):
     def handle_data(self, data): self.text.append(data)
 
 class SiteTest(unittest.TestCase):
+    def test_reference_access_and_safe_read_commands(self):
+        html = (ROOT / 'index.html').read_text()
+        self.assertGreaterEqual(html.count('href="#fiche"'), 2)
+        self.assertGreaterEqual(html.count('href="https://github.com/Zacaria/havesome-kubernetes"'), 2)
+        self.assertIn('id="fiche"', html)
+        for command in ('kubectl config current-context', 'kubectl -n apprentissage get pods', 'kubectl -n apprentissage describe pod demo', 'kubectl -n apprentissage logs demo'):
+            self.assertIn(command, html)
+        self.assertIn('https://kubernetes.io/docs/reference/kubectl/quick-reference/', html)
+
     def test_beginner_path_precedes_reference_and_contains_complete_chart(self):
         html = (ROOT / 'index.html').read_text()
         self.assertLess(html.index('id="bases"'), html.index('id="architecture"'))

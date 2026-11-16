@@ -6,6 +6,10 @@ Guide francophone autonome pour développeurs : partir d'une intention déclarat
 
 Le parcours introduit une application web, les objets Kubernetes, la lecture du YAML puis un chart Helm complet avant les chapitres de référence. Les commandes expliquent préalablement leurs outils, cibles et arguments, et distinguent le rendu local des opérations modifiant un cluster de test ; aucune n’est exécutée par le site. Les schémas sont accompagnés de descriptions textuelles.
 
+## Fiche mémo
+
+La fiche rassemble le modèle déclaratif, les objets essentiels et des commandes de consultation. Les noms `apprentissage`, `demo` et `voyage` sont des exemples à adapter ; vérifier le contexte et les autorisations avant toute commande. Les exemples ne sont jamais exécutés par le site. Les commandes restent sélectionnables sans JavaScript ; la copie exige HTTPS ou localhost.
+
 ## Vérifier et servir
 
 Depuis ce dossier, `npm ci --workspaces=false` puis `npm run build` génèrent les ressources du site. Le fichier `assets/site.js` conservé dans ce dépôt correspond au bundle actuellement publié. Une reconstruction isolée avec le fichier de verrouillage produit actuellement des octets différents et remplace directement `assets/site.js` : conserver ou restaurer le bundle publié avant toute publication ; ne pas considérer le bundle reconstruit comme identique à la production sans comparaison et vérification. Exécuter `python3 -m unittest discover -s tests -v`, puis `python3 -m http.server 8000`. La navigation de progression suit le chapitre à la ligne de lecture ; les exemples utilisent le composant React Code Block du registre officiel shadcn/ui. Sans JavaScript, les exemples colorés et les ancres restent lisibles ; le repère et la copie nécessitent JavaScript. La copie nécessite HTTPS ou localhost. Les manifestes sont des exemples d'apprentissage, pas une configuration de production prête à appliquer. Aucune commande n'est exécutée par le site.
