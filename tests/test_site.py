@@ -14,6 +14,16 @@ class Page(HTMLParser):
     def handle_data(self, data): self.text.append(data)
 
 class SiteTest(unittest.TestCase):
+    def test_viteplus_build_and_shadcn_memo_controls(self):
+        import json
+        package = json.loads((ROOT / 'package.json').read_text())
+        self.assertEqual(package['scripts']['build'], 'vp build')
+        self.assertIn('vite-plus', package['devDependencies'])
+        source = (ROOT / 'src/main.tsx').read_text()
+        self.assertIn('<Button', source)
+        self.assertIn('memo-copy', source)
+        self.assertIn('src/main.tsx', (ROOT / 'index.html').read_text())
+
     def test_reference_includes_conceptual_illustration(self):
         html = (ROOT / 'index.html').read_text()
         memo = html.split('<section class="memo wrap"', 1)[1].split('</section>', 1)[0]

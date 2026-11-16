@@ -12,7 +12,11 @@ La fiche rassemble le modèle déclaratif, les objets essentiels et des commande
 
 ## Vérifier et servir
 
-Depuis ce dossier, `npm ci --workspaces=false` puis `npm run build` génèrent les ressources du site. Le fichier `assets/site.js` conservé dans ce dépôt correspond au bundle actuellement publié. Une reconstruction isolée avec le fichier de verrouillage produit actuellement des octets différents et remplace directement `assets/site.js` : conserver ou restaurer le bundle publié avant toute publication ; ne pas considérer le bundle reconstruit comme identique à la production sans comparaison et vérification. Exécuter `python3 -m unittest discover -s tests -v`, puis `python3 -m http.server 8000`. La navigation de progression suit le chapitre à la ligne de lecture ; les exemples utilisent le composant React Code Block du registre officiel shadcn/ui. Sans JavaScript, les exemples colorés et les ancres restent lisibles ; le repère et la copie nécessitent JavaScript. La copie nécessite HTTPS ou localhost. Les manifestes sont des exemples d'apprentissage, pas une configuration de production prête à appliquer. Aucune commande n'est exécutée par le site.
+Depuis ce dossier, installer avec `npm ci`, puis lancer `npm run build`. La toolchain Vite+ est locale au projet : aucune installation globale n’est nécessaire. Le répertoire `dist/` contient le site statique complet ; le bundle historique `assets/site.js` n’est pas écrasé. Pour développer : `npm run dev`. Pour vérifier le résultat construit : `npm run preview -- --host 127.0.0.1 --port 26387 --strictPort` puis `URL=http://127.0.0.1:26387/ npm run test:browser`. Exécuter aussi `python3 -m unittest discover -s tests -v`. La navigation de progression suit le chapitre à la ligne de lecture ; les exemples utilisent le composant React Code Block officiel shadcn/ui et les boutons de copie de la fiche utilisent son composant Button. Sans JavaScript, exemples, commandes, ancres et atelier restent accessibles ; le repère et la copie nécessitent JavaScript. La copie nécessite HTTPS ou localhost. Les manifestes sont des exemples d'apprentissage, pas une configuration de production prête à appliquer. Aucune commande n'est exécutée par le site.
+
+## Contribuer
+
+Modifier le contenu dans `index.html`, les styles dans `style.css` et les interactions dans `src/`. Avant de proposer un changement, installer les dépendances avec `npm ci`, exécuter `python3 -m unittest discover -s tests -v`, construire avec `npm run build` puis suivre le contrôle Brave ci-dessus. Conserver les sources officielles et vérifier que le parcours et la fiche restent lisibles sans JavaScript.
 
 ## Sources et visuels
 
@@ -20,7 +24,7 @@ Les références officielles sont liées dans le guide. Trois illustrations orig
 
 ## Publication
 
-Le site statique est destiné au projet Vercel séparé `havesome-kubernetes`, par déploiement manuel des fichiers `index.html`, `style.css`, `assets/kubernetes.svg`, `assets/kubernetes-cluster.png`, `assets/helm-rendering.png`, `assets/kubernetes-cheatsheet.png`, `assets/SHADCN-LICENSE.txt`, `assets/memo.js` et `assets/site.js` (bundle publié conservé dans le dépôt). Aucun déploiement automatique Git n'est configuré par cette méthode ; une modification du dépôt ne publie pas le site à elle seule.
+Le site statique est destiné au projet Vercel séparé `havesome-kubernetes`, par déploiement manuel du contenu de `dist/` après construction et revue. Aucun déploiement automatique Git n'est configuré par cette méthode ; une modification du dépôt ne publie pas le site à elle seule. Avant publication, réconcilier la fiche et le contenu public avec les autres déploiements en cours.
 
 ## Provenance du composant
 

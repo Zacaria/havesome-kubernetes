@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
+import { Button } from './button';
 
 import {
   CodeBlock,
@@ -78,4 +79,23 @@ for (const pre of Array.from(document.querySelectorAll<HTMLElement>('section.cha
       <CodeBlockContent>{highlighted}</CodeBlockContent>
     </CodeBlock>
   );
+}
+
+
+function MemoCopy({ value, label }: { value: string; label: string }) {
+  const [status, setStatus] = React.useState('Copier');
+  return <Button type="button" className="memo-copy" aria-label={`Copier : ${label}`} onClick={async () => {
+    try { await navigator.clipboard.writeText(value); setStatus('Copié'); }
+    catch { setStatus('Sélectionnez la commande pour la copier'); }
+  }}>{status}</Button>;
+}
+if (navigator.clipboard && window.isSecureContext) {
+  document.querySelectorAll<HTMLElement>('.memo-commands figure').forEach(figure => {
+    const code = figure.querySelector('code');
+    const label = figure.querySelector('figcaption');
+    if (!code || !label) return;
+    const mount = document.createElement('span');
+    figure.append(mount);
+    createRoot(mount).render(<MemoCopy value={code.textContent || ''} label={label.textContent || ''} />);
+  });
 }

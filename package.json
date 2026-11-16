@@ -3,8 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "node build.mjs",
-    "test:browser": "node tests/progress.mjs"
+    "build": "vp build",
+    "test:browser": "node tests/progress.mjs",
+    "dev": "vp dev",
+    "preview": "vp preview"
   },
   "dependencies": {
     "@base-ui/react": "1.3.0",
@@ -16,7 +18,11 @@
     "tailwind-merge": "3.5.0"
   },
   "devDependencies": {
-    "esbuild": "0.27.3",
-    "playwright-core": "1.58.2"
+    "playwright-core": "1.58.2",
+    "vite-plus": "1.6.0"
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.6.0",
+    "vitest": "5.1.0"
   }
 }
