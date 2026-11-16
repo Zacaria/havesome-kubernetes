@@ -16,11 +16,11 @@ Depuis ce dossier, `npm ci --workspaces=false` puis `npm run build` génèrent l
 
 ## Sources et visuels
 
-Les références officielles sont liées dans le guide. Deux schémas originaux ont été générés par l’outil intégré Codex `image_gen.imagegen` sur Mac ; la version du modèle n’est pas exposée. Les PNG originaux et leurs consignes sont conservés dans `assets/` et `generation-notes.md`. Le schéma orbital est dessiné en CSS ; le logo Kubernetes provient du [dépôt officiel CNCF Artwork](https://github.com/cncf/artwork/tree/main/projects/kubernetes/icon/color). Le nom et le logo Kubernetes désignent le projet décrit, sans affiliation implicite.
+Les références officielles sont liées dans le guide. Trois illustrations originales ont été générées par l’outil intégré Codex `image_gen` : les deux premiers schémas sur Mac, celui de la fiche localement. La version du modèle n’est pas exposée. Les PNG originaux et leurs consignes sont conservés dans `assets/` et `generation-notes.md`. Le schéma orbital est dessiné en CSS ; le logo Kubernetes provient du [dépôt officiel CNCF Artwork](https://github.com/cncf/artwork/tree/main/projects/kubernetes/icon/color). Le nom et le logo Kubernetes désignent le projet décrit, sans affiliation implicite.
 
 ## Publication
 
-Le site statique est destiné au projet Vercel séparé `havesome-kubernetes`, par déploiement manuel des fichiers `index.html`, `style.css`, `assets/kubernetes.svg`, `assets/kubernetes-cluster.png`, `assets/helm-rendering.png`, `assets/SHADCN-LICENSE.txt` et `assets/site.js` (bundle publié conservé dans le dépôt). Aucun déploiement automatique Git n'est configuré par cette méthode ; une modification du dépôt ne publie pas le site à elle seule.
+Le site statique est destiné au projet Vercel séparé `havesome-kubernetes`, par déploiement manuel des fichiers `index.html`, `style.css`, `assets/kubernetes.svg`, `assets/kubernetes-cluster.png`, `assets/helm-rendering.png`, `assets/kubernetes-cheatsheet.png`, `assets/SHADCN-LICENSE.txt`, `assets/memo.js` et `assets/site.js` (bundle publié conservé dans le dépôt). Aucun déploiement automatique Git n'est configuré par cette méthode ; une modification du dépôt ne publie pas le site à elle seule.
 
 ## Provenance du composant
 

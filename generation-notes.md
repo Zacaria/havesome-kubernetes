@@ -15,6 +15,12 @@ Source files:
 - kubernetes-cluster.png: exec-c07ac476-8438-4780-bcd9-1bfd8e8c729b.png
 - helm-rendering.png: exec-076f1170-6bab-4c71-a2ff-9b217ca08874.png
 
+## Fiche mémo
+
+Generated locally with the built-in Codex `image_gen` tool; model/version not exposed. Original 1536 × 1024 PNG, copied without resampling or re-encoding. SHA-256: `a7ad9e490bf61b61c673eb4507b0ac0f0e79ae3f603f420b6916fc6d376a2026`. The image is conceptual, not a literal topology; its symbols are not individually identified as Kubernetes resources.
+
+Prompt: “Use your built-in image_gen tool to create one original visual for a French Kubernetes technical cheat sheet: a precise, elegant editorial diagram of declarative desired state, control loop and workloads, visual only, no text, no logos, dark ink and restrained blue on light paper, landscape. Save the generated original PNG to this working directory as kubernetes-cheatsheet.png. Do not change credentials or config, do not use any other image API or fallback, do not access other projects. Report the actual image tool used and the saved file path.”
+
 ## Prompt: Kubernetes cluster
 
 Use case: scientific-educational.

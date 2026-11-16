@@ -14,6 +14,14 @@ class Page(HTMLParser):
     def handle_data(self, data): self.text.append(data)
 
 class SiteTest(unittest.TestCase):
+    def test_reference_includes_conceptual_illustration(self):
+        html = (ROOT / 'index.html').read_text()
+        memo = html.split('<section class="memo wrap"', 1)[1].split('</section>', 1)[0]
+        self.assertIn('src="assets/kubernetes-cheatsheet.png"', memo)
+        self.assertIn('alt=""', memo)
+        self.assertIn('Illustration conceptuelle', memo)
+        self.assertTrue((ROOT / 'assets/kubernetes-cheatsheet.png').is_file())
+
     def test_reference_access_and_safe_read_commands(self):
         html = (ROOT / 'index.html').read_text()
         self.assertGreaterEqual(html.count('href="#fiche"'), 2)
